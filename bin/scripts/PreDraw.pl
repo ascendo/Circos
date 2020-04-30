@@ -23,7 +23,11 @@ if ($opt{help} or keys %opt < 1){
 } 
 
 $opt{project} ||= "Draw_Data";
+<<<<<<< HEAD
 $opt{prefix}  ||= "Bca";
+=======
+$opt{prefix}  ||= "MSU7";
+>>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 `mkdir $opt{project}` unless (-e $opt{project});
 
 `sed 's/Chr/A/' $opt{chrlen} > $opt{project}/$opt{prefix}.chrlen`;
@@ -39,12 +43,21 @@ sub prepare
 my ($dir,$species,$len)=@_;
 system ("perl $Bin/remove_redundance.pl $dir/$species.RT.gff $dir/$species.DNA.gff $dir/$species.Gene.gff");
 system ("perl $Bin/distri_data_pre.pl $len distri.gff.nr.out");
+<<<<<<< HEAD
 `cat *.data.distri > $opt{project}/$opt{prefix}.data.distri.all`;
 `perl $Bin/circos_head.pl --chrlen $opt{chrlen} > $opt{project}/$opt{prefix}.circos.head`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head RT > $opt{project}/$opt{prefix}.RT.histogram.txt`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head DNA > $opt{project}/$opt{prefix}.DNA.histogram.txt`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head exon > $opt{project}/$opt{prefix}.exon.histogram.txt`;
 #system ("rm A*.data.distri distri.gff.nr.out");
+=======
+`cat A*.data.distri > $opt{project}/$opt{prefix}.data.distri`;
+`perl $Bin/circos_head.pl --chrlen $opt{chrlen} > $opt{project}/$opt{prefix}.circos.head`;
+`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head RT > $opt{project}/$opt{prefix}.RT.histogram.txt`;
+`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head DNA > $opt{project}/$opt{prefix}.DNA.histogram.txt`;
+`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head exon > $opt{project}/$opt{prefix}.exon.histogram.txt`;
+system ("rm A*.data.distri distri.gff.nr.out");
+>>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 }
 
 sub cpGene
@@ -83,7 +96,11 @@ while(<IN>){
     my @temp=split("\t",$_);
     $temp[0]=~s/Chr/A/;
     my $line=join("\t",@temp);
+<<<<<<< HEAD
     my $TE_class= $1 if ($temp[8] =~ /Target=([^;]+);*/);
+=======
+    my $TE_class= $1 if ($temp[8] =~ /Class=([^;]+);*/);
+>>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
     #print "$TE_class\n";
     if ($TE_class =~/^DNA/){
        print DNA "$line";
