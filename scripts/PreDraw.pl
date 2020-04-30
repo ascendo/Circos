@@ -23,11 +23,7 @@ if ($opt{help} or keys %opt < 1){
 } 
 
 $opt{project} ||= "Draw_Data";
-<<<<<<< HEAD
 $opt{prefix}  ||= "Bca";
-=======
-$opt{prefix}  ||= "MSU7";
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 `mkdir $opt{project}` unless (-e $opt{project});
 
 `sed 's/Chr/A/' $opt{chrlen} > $opt{project}/$opt{prefix}.chrlen`;
