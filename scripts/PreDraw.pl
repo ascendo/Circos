@@ -83,11 +83,7 @@ while(<IN>){
     my @temp=split("\t",$_);
     $temp[0]=~s/Chr/A/;
     my $line=join("\t",@temp);
-<<<<<<< HEAD
     my $TE_class= $1 if ($temp[8] =~ /Target=([^;]+);*/);
-=======
-    my $TE_class= $1 if ($temp[8] =~ /Class=([^;]+);*/);
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
     #print "$TE_class\n";
     if ($TE_class =~/^DNA/){
        print DNA "$line";
