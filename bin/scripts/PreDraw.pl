@@ -43,21 +43,12 @@ sub prepare
 my ($dir,$species,$len)=@_;
 system ("perl $Bin/remove_redundance.pl $dir/$species.RT.gff $dir/$species.DNA.gff $dir/$species.Gene.gff");
 system ("perl $Bin/distri_data_pre.pl $len distri.gff.nr.out");
-<<<<<<< HEAD
 `cat *.data.distri > $opt{project}/$opt{prefix}.data.distri.all`;
 `perl $Bin/circos_head.pl --chrlen $opt{chrlen} > $opt{project}/$opt{prefix}.circos.head`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head RT > $opt{project}/$opt{prefix}.RT.histogram.txt`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head DNA > $opt{project}/$opt{prefix}.DNA.histogram.txt`;
 `perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri.all $opt{project}/$opt{prefix}.circos.head exon > $opt{project}/$opt{prefix}.exon.histogram.txt`;
 #system ("rm A*.data.distri distri.gff.nr.out");
-=======
-`cat A*.data.distri > $opt{project}/$opt{prefix}.data.distri`;
-`perl $Bin/circos_head.pl --chrlen $opt{chrlen} > $opt{project}/$opt{prefix}.circos.head`;
-`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head RT > $opt{project}/$opt{prefix}.RT.histogram.txt`;
-`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head DNA > $opt{project}/$opt{prefix}.DNA.histogram.txt`;
-`perl $Bin/get_dens_histogram.pl $opt{project}/$opt{prefix}.data.distri $opt{project}/$opt{prefix}.circos.head exon > $opt{project}/$opt{prefix}.exon.histogram.txt`;
-system ("rm A*.data.distri distri.gff.nr.out");
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 }
 
 sub cpGene

@@ -28,11 +28,7 @@ sub get_len{
 	open IN, $file or die "Can't open $file:$!\n";
 	while(<IN>){
 		chomp;
-<<<<<<< HEAD
 	#	next unless ( /^A\d+/ );
-=======
-		next unless ( /^A\d+/ );
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 		my @t= split;
 		$len_p->{$t[0]}= int ( $t[1]/100000 ) + 1;		
 	}
@@ -46,11 +42,7 @@ sub read_file{
 	open IN, $file or die "Can't open $file:$!\n";
 	while(<IN>){
 		chomp;
-<<<<<<< HEAD
 	#	next unless ( /^(A\d+)/ );
-=======
-		next unless ( /^(A\d+)/ );
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 		my @t= split;
 		my $chr= $t[0];
 		$type= $t[2];

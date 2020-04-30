@@ -68,11 +68,7 @@ while(<FH>)
 	chomp;
 	my @tmp = split /\t/;
         next unless ($tmp[1]=~/$feature/);
-<<<<<<< HEAD
 #	$tmp[0] =~ s/A/Chr/;
-=======
-	$tmp[0] =~ s/A/Chr/;
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
         #print $tmp[0], $tmp[1], "\n";
 	$max{$tmp[0]} = 0 if(not exists $max{$tmp[0]});
 	$min{$tmp[0]} = 1 if(not exists $min{$tmp[0]});

@@ -60,11 +60,7 @@ while(<IN>){
     next if ($_=~/^$/);
     my @unit=split("\t",$_);
     my $chrn = $1 if ($unit[0]=~/(\d+)/);
-<<<<<<< HEAD
     print "chr - $unit[0] $chrn 0 $unit[1] $unit[0]\n";
-=======
-    print "chr - $unit[0] $chrn 0 $unit[1] chr$chrn\n";
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 }
 close IN;
 return \%hash;

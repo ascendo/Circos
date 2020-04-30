@@ -28,21 +28,13 @@ sub read_gff{
 	while (<IN>) {
 		chomp;
 		s/^\s+//;
-<<<<<<< HEAD
 		#next unless (/^A\d+/);
-=======
-		next unless (/^A\d+/);
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 		my @temp=split(/\t/);
 
 		my $tname= $temp[0];
 		my $start= $temp[3];
 		my $end= $temp[4];
-<<<<<<< HEAD
 		my $TE_class= $1 if ($temp[8] =~ /Target=([^;]+);*/);
-=======
-		my $TE_class= $1 if ($temp[8] =~ /Class=([^;]+);*/);
->>>>>>> 28d027da7437011c0421fe71aa880afd25f98ff1
 		$TE_class=~ s/\?$//;
 		$TE_class= $1 if ( $TE_class=~/^([^\/]+)\/\S+/ );
 		my $type= ( $TE_class eq "DNA" ) ? "DNA-TEs" : "RTs";
